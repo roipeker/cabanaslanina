@@ -15,4 +15,4 @@ jobs:
         with:
           webRenderer: canvaskit
           targetBranch: gh-pages
-          baseHref: /cabanaslanina/
+#          baseHref: /cabanaslanina/
