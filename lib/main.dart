@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:graphx/graphx.dart';
+
+import 'flash/root.dart';
 
 void main() {
   runApp(const MyApp());
@@ -15,12 +18,31 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.pink,
         appBarTheme: AppBarTheme(
-          // backgroundColor: Colors.transparent,
-          // elevation: 0,
-          // foregroundColor: Colors.black87,
+            // backgroundColor: Colors.transparent,
+            // elevation: 0,
+            // foregroundColor: Colors.black87,
+            ),
+      ),
+      // home: const MyHomePage(),
+      home: const FlashWidget(),
+    );
+  }
+}
+
+class FlashWidget extends StatelessWidget {
+  const FlashWidget({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: Colors.white,
+      body: SceneBuilderWidget(
+        autoSize: true,
+        builder: () => SceneController(
+          front: RootApp(),
+          config: SceneConfig.interactive,
         ),
       ),
-      home: const MyHomePage(),
     );
   }
 }
@@ -55,7 +77,6 @@ class _MyHomePageState extends State<MyHomePage> {
                 ),
               ],
             ),
-
           ],
         ),
       ),
