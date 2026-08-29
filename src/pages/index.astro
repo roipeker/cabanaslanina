@@ -1,0 +1,151 @@
+---
+import '../styles/global.css';
+
+const base = import.meta.env.BASE_URL;
+const phoneDisplay = '+54 2324 51-9213';
+const phoneHref = 'tel:+542324519213';
+const mapsHref = 'https://www.google.com/maps/search/?api=1&query=Caba%C3%B1as+La+Ni%C3%B1a+Mercedes+Buenos+Aires';
+const legacyExterior = 'https://www.argentinaturismo.com.ar/laninia/img-cliente/2/05.jpg';
+const legacyInterior = 'https://www.argentinaturismo.com.ar/laninia/img-cliente/2/25.jpg';
+
+const structuredData = {
+  '@context': 'https://schema.org',
+  '@type': 'LodgingBusiness',
+  name: 'Cabañas La Niña',
+  url: 'https://cabanaslanina.com/',
+  telephone: '+54 2324 51-9213',
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: 'Calle 151 entre 28 Bis y 30 Bis',
+    addressLocality: 'Mercedes',
+    addressRegion: 'Buenos Aires',
+    postalCode: 'B6600',
+    addressCountry: 'AR',
+  },
+};
+---
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="theme-color" content="#234331" />
+    <meta name="description" content="Cabañas La Niña: naturaleza, parque y descanso a pocos minutos del centro de Mercedes, Buenos Aires." />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="es_AR" />
+    <meta property="og:title" content="Cabañas La Niña — Mercedes, Buenos Aires" />
+    <meta property="og:description" content="Un lugar para bajar el ritmo, rodeado de verde, a pocos minutos del centro de Mercedes." />
+    <meta property="og:image" content={legacyExterior} />
+    <link rel="canonical" href="https://roipeker.github.io/cabanaslanina/" />
+    <link rel="icon" href={`${base}logo.svg`} type="image/svg+xml" />
+    <title>Cabañas La Niña — Mercedes, Buenos Aires</title>
+    <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="shell topbar-inner">
+        <a class="brand" href="#inicio" aria-label="Cabañas La Niña, inicio">
+          <img src={`${base}logo.svg`} alt="" width="62" height="48" />
+          <span class="brand-copy"><strong>La Niña</strong><span>Mercedes · Buenos Aires</span></span>
+        </a>
+        <nav class="nav" aria-label="Principal">
+          <a href="#lugar">El lugar</a>
+          <a href="#servicios">Servicios</a>
+          <a href="#ubicacion">Ubicación</a>
+          <a class="nav-cta" href={phoneHref}>Consultar</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero" id="inicio">
+        <div class="hero-media"><img src={legacyExterior} alt="Cabaña de ladrillo rodeada de parque en Cabañas La Niña" fetchpriority="high" /></div>
+        <div class="shell hero-content">
+          <div class="eyebrow">Mercedes · Provincia de Buenos Aires</div>
+          <h1>Volver al ritmo de la naturaleza.</h1>
+          <p class="hero-lede">Cabañas rodeadas de parque, aire libre y calma. Una escapada simple para descansar, compartir y estar un poco más lejos del ruido.</p>
+          <div class="hero-actions">
+            <a class="button button-primary" href={phoneHref}>Consultar disponibilidad</a>
+            <a class="button button-ghost" href="#lugar">Conocer La Niña</a>
+          </div>
+          <div class="hero-meta" aria-label="Datos destacados">
+            <div><small>Complejo</small><strong>6 cabañas</strong></div>
+            <div><small>Entorno</small><strong>2 hectáreas de parque</strong></div>
+            <div><small>Ubicación</small><strong>Mercedes, Buenos Aires</strong></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="intro" id="lugar">
+        <div class="shell intro-grid">
+          <div class="section-kicker">Una pausa cerca</div>
+          <div>
+            <h2 class="display">Hay días que piden menos agenda y más verde.</h2>
+            <p class="intro-copy">La Niña es un pequeño complejo de cabañas en un entorno rural de Mercedes. El parque, la pileta, los espacios abiertos y las cabañas independientes hacen que el lugar funcione tanto para una escapada en pareja como para bajar un cambio en familia.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="story-grid" aria-label="Las cabañas">
+        <div class="story-photo"><img src={legacyInterior} alt="Interior cálido de una cabaña de La Niña" loading="lazy" /></div>
+        <div class="story-panel">
+          <div>
+            <div class="section-kicker" style="color:rgba(255,255,255,.62)">Adentro</div>
+            <h2>Rústicas, cálidas y pensadas para quedarse.</h2>
+            <p>Espacios independientes con cocina, aire acondicionado, Wi‑Fi y parrilla. Lo necesario para hacer base, cocinar algo, descansar y volver al parque.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="features" id="servicios">
+        <div class="shell">
+          <div class="features-head">
+            <div><div class="section-kicker">Lo esencial</div><h2 class="display">Más lugar para hacer menos.</h2></div>
+            <p class="features-note">Este primer sitio prioriza la experiencia y la consulta directa. Antes del lanzamiento en el dominio oficial vamos a validar el detalle final de cada servicio y política.</p>
+          </div>
+          <div class="feature-list">
+            <article class="feature"><div class="num">01</div><h3>Parque</h3><p>Un predio amplio y parquizado para pasar el día afuera.</p></article>
+            <article class="feature"><div class="num">02</div><h3>Pileta</h3><p>Espacio de piscina al aire libre dentro del complejo.</p></article>
+            <article class="feature"><div class="num">03</div><h3>Parrilla</h3><p>Las cabañas cuentan con un lugar propio para cocinar al fuego.</p></article>
+            <article class="feature"><div class="num">04</div><h3>Comodidad</h3><p>Wi‑Fi, cocina, estacionamiento y aire acondicionado.</p></article>
+          </div>
+        </div>
+      </section>
+
+      <section class="quote">
+        <div class="shell">
+          <blockquote>“Lo suficientemente cerca para escaparse. Lo suficientemente tranquilo para sentir que te fuiste.”</blockquote>
+          <p>Cabañas La Niña · Mercedes</p>
+        </div>
+      </section>
+
+      <section class="location" id="ubicacion">
+        <div class="shell location-grid">
+          <div>
+            <div class="section-kicker">Mercedes, Buenos Aires</div>
+            <h2 class="display" style="margin-top:14px">Campo sin irse demasiado lejos.</h2>
+            <p>La Niña está en un entorno rural de Mercedes, a pocos kilómetros del centro. Es una base simple para descansar, recorrer la ciudad o acercarse a la gastronomía y los paseos de la zona.</p>
+          </div>
+          <div class="address-card">
+            <small>Cómo llegar</small>
+            <strong>Calle 151 entre 28 Bis y 30 Bis<br />Mercedes, Buenos Aires</strong>
+            <a href={mapsHref} target="_blank" rel="noreferrer">Abrir ubicación en Google Maps ↗</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="contact" id="contacto">
+        <div class="shell">
+          <div class="contact-grid">
+            <div><div class="section-kicker" style="color:rgba(255,255,255,.55)">Tu próxima pausa</div><h2 class="display" style="margin-top:14px">¿Cuándo te querés escapar?</h2></div>
+            <div><p>Para disponibilidad y consultas, hablá directamente con La Niña.</p><div class="contact-actions"><a class="button button-primary" href={phoneHref}>Llamar · {phoneDisplay}</a></div></div>
+          </div>
+          <footer class="footer">
+            <div><img src={`${base}logo.svg`} alt="Cabañas La Niña" /><div style="margin-top:18px">Mercedes · Provincia de Buenos Aires · Argentina</div></div>
+            <div>Primera iteración del nuevo sitio · 2026</div>
+          </footer>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>

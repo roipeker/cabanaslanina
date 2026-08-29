@@ -1,16 +1,27 @@
-# cabanaslanina
+# Cabañas La Niña
 
-Template site for Cabañas La Niña
+Autonomously maintained marketing site for Cabañas La Niña in Mercedes, Buenos Aires.
 
-## Getting Started
+## Stack
 
-This project is a starting point for a Flutter application.
+- Astro 7
+- TypeScript
+- Static HTML/CSS
+- GitHub Actions
+- GitHub Pages (`gh-pages`)
 
-A few resources to get you started if this is your first Flutter project:
+## Local development
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+```bash
+npm install
+npm run dev
+```
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Validation:
+
+```bash
+npm run check
+npm run build
+```
+
+The public custom domain is intentionally not part of the first redesign iteration. `main` publishes the preview site automatically through GitHub Pages.
