@@ -1,10 +1,11 @@
 ---
 import '../styles/global.css';
+import { featuredStories } from '../data/guide';
 
 const base = import.meta.env.BASE_URL;
 const phoneDisplay = '+54 2324 51-9213';
 const phoneHref = 'tel:+542324519213';
-const mapsHref = 'https://www.google.com/maps/search/?api=1&query=Caba%C3%B1as+La+Ni%C3%B1a+Mercedes+Buenos+Aires';
+const mapsHref = 'https://www.google.com/maps/place/Caba%C3%B1as+La+Ni%C3%B1a/@-34.6498786,-59.3895022,17z/data=!3m1!4b1!4m9!3m8!1s0x95bc73733aa84553:0xc60530ac4920e7d0!5m2!4m1!1i2!8m2!3d-34.649883!4d-59.3869273!16s%2Fg%2F1ptw7yz37?entry=ttu';
 const legacyExterior = 'https://www.argentinaturismo.com.ar/laninia/img-cliente/2/05.jpg';
 const legacyInterior = 'https://www.argentinaturismo.com.ar/laninia/img-cliente/2/25.jpg';
 
@@ -22,6 +23,11 @@ const structuredData = {
     postalCode: 'B6600',
     addressCountry: 'AR',
   },
+  geo: {
+    '@type': 'GeoCoordinates',
+    latitude: -34.649883,
+    longitude: -59.3869273,
+  },
 };
 ---
 <!doctype html>
@@ -29,17 +35,17 @@ const structuredData = {
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
-    <meta name="theme-color" content="#234331" />
+    <meta name="theme-color" content="#203d2d" />
     <meta name="description" content="Cabañas La Niña: naturaleza, parque y descanso a pocos minutos del centro de Mercedes, Buenos Aires." />
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="es_AR" />
     <meta property="og:title" content="Cabañas La Niña — Mercedes, Buenos Aires" />
-    <meta property="og:description" content="Un lugar para bajar el ritmo, rodeado de verde, a pocos minutos del centro de Mercedes." />
+    <meta property="og:description" content="Una escapada entre dos hectáreas de verde, a pocos minutos del centro de Mercedes." />
     <meta property="og:image" content={legacyExterior} />
     <link rel="canonical" href="https://roipeker.github.io/cabanaslanina/" />
     <link rel="icon" href={`${base}logo.svg`} type="image/svg+xml" />
-    <title>Cabañas La Niña — Mercedes, Buenos Aires</title>
-    <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
+    <title>Cabañas La Niña — Escapadas en Mercedes, Buenos Aires</title>
+    <script type="application/ld+json" is:inline set:html={JSON.stringify(structuredData)} />
   </head>
   <body>
     <header class="topbar">
@@ -51,6 +57,7 @@ const structuredData = {
         <nav class="nav" aria-label="Principal">
           <a href="#lugar">El lugar</a>
           <a href="#servicios">Servicios</a>
+          <a href={`${base}guia/`}>Guía</a>
           <a href="#ubicacion">Ubicación</a>
           <a class="nav-cta" href={phoneHref}>Consultar</a>
         </nav>
@@ -63,7 +70,7 @@ const structuredData = {
         <div class="shell hero-content">
           <div class="eyebrow">Mercedes · Provincia de Buenos Aires</div>
           <h1>Volver al ritmo de la naturaleza.</h1>
-          <p class="hero-lede">Cabañas rodeadas de parque, aire libre y calma. Una escapada simple para descansar, compartir y estar un poco más lejos del ruido.</p>
+          <p class="hero-lede">Seis cabañas entre dos hectáreas de parque. Una escapada simple para descansar, compartir y estar un poco más lejos del ruido.</p>
           <div class="hero-actions">
             <a class="button button-primary" href={phoneHref}>Consultar disponibilidad</a>
             <a class="button button-ghost" href="#lugar">Conocer La Niña</a>
@@ -73,6 +80,17 @@ const structuredData = {
             <div><small>Entorno</small><strong>2 hectáreas de parque</strong></div>
             <div><small>Ubicación</small><strong>Mercedes, Buenos Aires</strong></div>
           </div>
+        </div>
+      </section>
+
+      <section class="trust-strip" aria-label="Confianza y ubicación">
+        <div class="shell trust-grid">
+          <a class="rating" href={mapsHref} target="_blank" rel="noreferrer">
+            <span class="stars">★★★★★</span>
+            <strong>4,5 en Google</strong>
+            <span>más de 250 opiniones · ver ficha ↗</span>
+          </a>
+          <p>A pocos kilómetros del centro de Mercedes, con parque, pileta y espacio para bajar un cambio.</p>
         </div>
       </section>
 
@@ -90,7 +108,7 @@ const structuredData = {
         <div class="story-photo"><img src={legacyInterior} alt="Interior cálido de una cabaña de La Niña" loading="lazy" /></div>
         <div class="story-panel">
           <div>
-            <div class="section-kicker" style="color:rgba(255,255,255,.62)">Adentro</div>
+            <div class="section-kicker section-kicker-light">Adentro</div>
             <h2>Rústicas, cálidas y pensadas para quedarse.</h2>
             <p>Espacios independientes con cocina, aire acondicionado, Wi‑Fi y parrilla. Lo necesario para hacer base, cocinar algo, descansar y volver al parque.</p>
           </div>
@@ -101,13 +119,58 @@ const structuredData = {
         <div class="shell">
           <div class="features-head">
             <div><div class="section-kicker">Lo esencial</div><h2 class="display">Más lugar para hacer menos.</h2></div>
-            <p class="features-note">Este primer sitio prioriza la experiencia y la consulta directa. Antes del lanzamiento en el dominio oficial vamos a validar el detalle final de cada servicio y política.</p>
+            <p class="features-note">Estamos armando una versión más completa de La Niña. Antes de llevarla al dominio oficial, cada servicio, política y detalle de las cabañas se valida con sus dueños.</p>
           </div>
           <div class="feature-list">
             <article class="feature"><div class="num">01</div><h3>Parque</h3><p>Un predio amplio y parquizado para pasar el día afuera.</p></article>
             <article class="feature"><div class="num">02</div><h3>Pileta</h3><p>Espacio de piscina al aire libre dentro del complejo.</p></article>
             <article class="feature"><div class="num">03</div><h3>Parrilla</h3><p>Las cabañas cuentan con un lugar propio para cocinar al fuego.</p></article>
             <article class="feature"><div class="num">04</div><h3>Comodidad</h3><p>Wi‑Fi, cocina, estacionamiento y aire acondicionado.</p></article>
+          </div>
+        </div>
+      </section>
+
+      <section class="discover" id="descubrir">
+        <div class="shell discover-head">
+          <div>
+            <div class="section-kicker">Cerca de La Niña</div>
+            <h2 class="display">Mercedes también es parte de la escapada.</h2>
+          </div>
+          <div class="discover-intro">
+            <p>Historias, sabores y lugares para conocer el paisaje que rodea a La Niña. Una guía editorial que cruza patrimonio, naturaleza, cultura y agenda local.</p>
+            <a class="text-link" href={`${base}guia/`}>Explorar la guía completa →</a>
+          </div>
+        </div>
+
+        <div class="shell editorial-grid">
+          {featuredStories.map((story, index) => (
+            <article class:list={["editorial-card", index === 0 && "editorial-card-lead"]}>
+              <a class="editorial-media" href={`${base}guia/${story.slug}/`}>
+                <img src={story.image} alt={story.imageAlt} loading="lazy" />
+                <span class="editorial-index">0{index + 1}</span>
+              </a>
+              <div class="editorial-copy">
+                <div class="section-kicker">{story.eyebrow}</div>
+                <h3><a href={`${base}guia/${story.slug}/`}>{story.title}</a></h3>
+                <p>{story.dek}</p>
+                <a class="text-link" href={`${base}guia/${story.slug}/`}>Leer →</a>
+              </div>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section class="now-card">
+        <div class="shell now-grid">
+          <div class="now-date"><span>11—13</span><small>SEP · 2026</small></div>
+          <div>
+            <div class="section-kicker section-kicker-light">Ahora en Mercedes</div>
+            <h2>51ª Fiesta Nacional del Salame Quintero</h2>
+            <p>Tres días en el Parque Municipal Independencia con productores, gastronomía, actividades y música en vivo. Una buena excusa para hacer del viaje un fin de semana.</p>
+          </div>
+          <div class="now-actions">
+            <a class="button button-primary" href={`${base}guia/fiesta-salame-quintero-2026/`}>Planear la visita</a>
+            <a class="text-link text-link-light" href="https://fiestadelsalame.mercedes.gob.ar/" target="_blank" rel="noreferrer">Sitio oficial ↗</a>
           </div>
         </div>
       </section>
@@ -123,13 +186,13 @@ const structuredData = {
         <div class="shell location-grid">
           <div>
             <div class="section-kicker">Mercedes, Buenos Aires</div>
-            <h2 class="display" style="margin-top:14px">Campo sin irse demasiado lejos.</h2>
-            <p>La Niña está en un entorno rural de Mercedes, a pocos kilómetros del centro. Es una base simple para descansar, recorrer la ciudad o acercarse a la gastronomía y los paseos de la zona.</p>
+            <h2 class="display location-title">Campo sin irse demasiado lejos.</h2>
+            <p>La Niña está en un entorno rural de Mercedes, a pocos kilómetros del centro. Es una base tranquila para descansar, recorrer la ciudad y acercarse a la gastronomía, el patrimonio y los paseos de la zona.</p>
           </div>
           <div class="address-card">
             <small>Cómo llegar</small>
             <strong>Calle 151 entre 28 Bis y 30 Bis<br />Mercedes, Buenos Aires</strong>
-            <a href={mapsHref} target="_blank" rel="noreferrer">Abrir ubicación en Google Maps ↗</a>
+            <a href={mapsHref} target="_blank" rel="noreferrer">Abrir la ficha exacta en Google Maps ↗</a>
           </div>
         </div>
       </section>
@@ -137,12 +200,12 @@ const structuredData = {
       <section class="contact" id="contacto">
         <div class="shell">
           <div class="contact-grid">
-            <div><div class="section-kicker" style="color:rgba(255,255,255,.55)">Tu próxima pausa</div><h2 class="display" style="margin-top:14px">¿Cuándo te querés escapar?</h2></div>
+            <div><div class="section-kicker section-kicker-light">Tu próxima pausa</div><h2 class="display contact-title">¿Cuándo te querés escapar?</h2></div>
             <div><p>Para disponibilidad y consultas, hablá directamente con La Niña.</p><div class="contact-actions"><a class="button button-primary" href={phoneHref}>Llamar · {phoneDisplay}</a></div></div>
           </div>
           <footer class="footer">
-            <div><img src={`${base}logo.svg`} alt="Cabañas La Niña" /><div style="margin-top:18px">Mercedes · Provincia de Buenos Aires · Argentina</div></div>
-            <div>Primera iteración del nuevo sitio · 2026</div>
+            <div><img src={`${base}logo.svg`} alt="Cabañas La Niña" /><div class="footer-place">Mercedes · Provincia de Buenos Aires · Argentina</div></div>
+            <div>Nuevo sitio en exploración · 2026</div>
           </footer>
         </div>
       </section>
