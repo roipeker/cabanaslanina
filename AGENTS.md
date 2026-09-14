@@ -39,4 +39,6 @@ Maintain a fast, contemporary, mobile-first hospitality website that converts di
 
 ## Content status
 
-The current visual prototype uses externally hosted legacy property photographs while the new site is being established. Replace these with authoritative, optimized originals in this repository before considering the redesign production-ready on the custom domain.
+The current preview uses a curated mix of local legacy property photographs, temporary stock imagery, and selected guest/community photography. Provenance and replacement priority live in `src/data/media.ts`; routine business content lives in `src/data/site.ts`. Published derivatives are self-hosted under `public/media/`, while working originals remain outside Git in `media-source/`.
+
+Treat temporary imagery as a deliberate visual scaffold. Replace it slot-by-slot with authoritative La Niña originals without changing page structure, and preserve source/credit metadata while it remains in use.
