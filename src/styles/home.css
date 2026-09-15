@@ -220,3 +220,50 @@ body:after{width:9px;height:9px;left:5vw;top:9vh;background:rgba(255,255,255,.58
 
 /* Current preview revision. */
 .topbar:after{content:'v0.9.0'!important}
+
+/* v0.9.1 — mobile visual QA from device screenshots. */
+@media(max-width:560px){
+  /* One horizontal inset and one section rhythm for all copy-led sections. */
+  :root{--mobile-gutter:24px;--mobile-section:64px}
+  .shell{width:auto!important;margin-left:var(--mobile-gutter)!important;margin-right:var(--mobile-gutter)!important}
+  .section-kicker{margin:0 0 12px!important;line-height:1.25!important}
+  .display,.proof-head h2,.today-heading h2,.discover-head h2,.contact-title{margin-top:0!important}
+
+  /* Header must remain legible independently of the hero underneath. */
+  .topbar{background:rgba(45,57,47,.97)!important;color:#fff!important;border-bottom:1px solid rgba(255,255,255,.12)!important}
+  .brand,.brand-copy strong,.nav a{color:#fff!important}.brand-copy span{color:rgba(255,255,255,.68)!important}
+  .brand img{filter:brightness(0) invert(1)!important}.nav-cta{border-color:rgba(255,255,255,.38)!important;color:#fff!important}
+
+  /* Photography is full bleed vertically; spacing belongs to copy sections. */
+  .property-showcase,.property-track,.property-slide,.breakfast-gallery,.breakfast-track,.breakfast-track figure,.story-photo{margin-top:0!important;margin-bottom:0!important;padding-top:0!important;padding-bottom:0!important;border-top:0!important;border-bottom:0!important}
+  .property-slide img,.breakfast-track img,.story-photo img{display:block!important;margin:0!important}
+  .property-showcase+.story-grid,.story-grid+.features,.breakfast-gallery+.breakfast-copy{margin-top:0!important;border-top:0!important}
+
+  /* Carousel chrome stays inside the image, never in a synthetic footer strip. */
+  .property-controls{left:24px!important;right:auto!important;bottom:22px!important}
+  .property-slide figcaption{bottom:92px!important}
+  .property-signature{left:24px!important;top:22px!important}
+  .breakfast-gallery{line-height:0!important}.breakfast-controls{bottom:20px!important}
+
+  /* The old stamp is too dense at phone size. */
+  .breakfast-stamp{display:none!important}
+
+  /* Testimonials: clean cards, no divider masquerading as padding. */
+  .review-grid{gap:12px!important;padding-top:0!important}
+  .review-card,.review-card:first-child,.review-card:nth-child(n+2){border:0!important;padding:28px 26px!important;background:rgba(255,255,255,.055)!important}
+  .review-card:first-child{padding-left:26px!important}
+  .review-card blockquote{margin:22px 0!important}
+
+  /* Suggestion panel: guaranteed contrast, no pale text over pale photography. */
+  .today-suggestion{background:var(--pine)!important;color:#fff!important}
+  .today-suggestion strong,.today-suggestion span{color:#fff!important}.today-suggestion small{color:#e8b969!important}
+
+  /* Editorial intro cannot escape the viewport. */
+  .discover-head{padding-left:var(--mobile-gutter)!important;padding-right:var(--mobile-gutter)!important}
+  .discover-head h2{font-size:clamp(2.9rem,13vw,4.2rem)!important;line-height:.92!important;overflow-wrap:anywhere}
+  .discover-head p{max-width:100%!important}
+
+  /* Mood imagery should read as photography, not cards with gutters. */
+  .mood-strip{padding:0!important}.mood-grid{gap:0!important}.mood-item,.mood-item-wide,.mood-item:nth-child(3){flex-basis:100vw!important}
+}
+.topbar:after{content:'v0.9.1'!important}
